@@ -1,0 +1,10 @@
+# Backend
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/tmp_storage/
+*.pyc
+
+# Frontend
+frontend/node_modules/
+frontend/dist/

@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode — cream / charcoal, per spec */
+  --dp-bg: 246 243 235;          /* light cream background */
+  --dp-card: 250 248 242;        /* slightly lighter cream cards */
+  --dp-card-alt: 240 236 225;    /* beige accent surface */
+  --dp-border: 224 216 198;      /* soft beige borders */
+  --dp-ink: 26 24 21;            /* near-black text */
+  --dp-ink-muted: 108 100 86;    /* muted charcoal-brown text */
+  --dp-charcoal: 45 41 36;       /* charcoal elements / buttons */
+  --dp-accent-bg: 234 228 213;
+}
+
+.dark {
+  /* Dark mode — dark grey / warm cream, per spec */
+  --dp-bg: 24 23 22;             /* dark grey background */
+  --dp-card: 32 31 29;           /* slightly lighter dark-grey cards */
+  --dp-card-alt: 41 37 32;       /* dark cream accent areas */
+  --dp-border: 58 55 50;         /* muted grey borders */
+  --dp-ink: 240 234 222;         /* warm cream text */
+  --dp-ink-muted: 163 154 140;
+  --dp-charcoal: 214 205 189;    /* charcoal controls (inverted for contrast) */
+  --dp-accent-bg: 41 37 32;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(var(--dp-bg));
+  color: rgb(var(--dp-ink));
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: rgb(var(--dp-charcoal) / 0.18);
+}
+
+/* Slim, quiet scrollbars for horizontally-scrolling tables */
+.dp-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.dp-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dp-scroll::-webkit-scrollbar-thumb {
+  background: rgb(var(--dp-border));
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--dp-charcoal));
+  outline-offset: 2px;
+}
